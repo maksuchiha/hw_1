@@ -24,6 +24,12 @@
     border-radius: 10px;
 }
 
+.text div:last-of-type {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+}
+
 .text:after {
 
 }

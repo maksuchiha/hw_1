@@ -30,10 +30,10 @@ const Message = (props: MessagePropsType) => {
                         <div>
                             {props.message.message.text}
                         </div>
-                        <div>
-                            {props.message.message.time}
-                        </div>
                     </pre>
+                    <div>
+                        {props.message.message.time}
+                    </div>
                 </div>
             </div>
             <div id={'hw1-time-' + props.message.id} className={s.time}>

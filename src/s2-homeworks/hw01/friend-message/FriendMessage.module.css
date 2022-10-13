@@ -22,6 +22,10 @@
     border-radius: 10px;
 }
 
+.friendText div:last-of-type {
+    font-size: 13px;
+}
+
 .friendText:after {
 
 }
