@@ -31,13 +31,10 @@ const Message = (props: MessagePropsType) => {
                             {props.message.message.text}
                         </div>
                     </pre>
-                    <div>
-                        {props.message.message.time}
-                    </div>
                 </div>
             </div>
             <div id={'hw1-time-' + props.message.id} className={s.time}>
-
+                {props.message.message.time}
             </div>
         </div>
     )

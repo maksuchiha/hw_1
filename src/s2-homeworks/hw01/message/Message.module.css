@@ -24,12 +24,6 @@
     border-radius: 10px;
 }
 
-.text div:last-of-type {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 13px;
-}
-
 .text:after {
 
 }
@@ -50,5 +44,10 @@
 }
 
 .time {
-
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 13px;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 12px;
 }
