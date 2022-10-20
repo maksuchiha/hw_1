@@ -52,7 +52,7 @@ function HW2() {
     const deleteAffairCallback = (_id: number) => { // need to fix any
         setAffairs(affairs.filter((item: AffairType)=> item._id !== _id))
         deleteAffair(affairs, _id)
-        // need to fix
+
     }
 
     return (
