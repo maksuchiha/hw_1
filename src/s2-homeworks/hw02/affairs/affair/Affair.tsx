@@ -6,11 +6,11 @@ import s2 from '../Affairs.module.css'
 type AffairPropsType = {
     // key не нужно типизировать
     affair: AffairType
-    deleteAffairCallback: any // need to fix any
+    deleteAffairCallback: (item: number) => void // need to fix any
 }
 
 function Affair(props: AffairPropsType) {
-    const deleteCallback = (click: any) => {
+    const deleteCallback = (click: number) => {
         props.deleteAffairCallback(click)
     }
 
