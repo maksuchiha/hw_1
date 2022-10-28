@@ -8,22 +8,28 @@ type GreetingContainerPropsType = {
     addUserCallback: (item: string) => void // need to fix any
 }
 
-export const pureAddUser = (name: string, setError: any, setName: any, addUserCallback: (name: string, setError: string, setName: string) => void) => {
+export const pureAddUser = (name: string,
+                            setError: (error: string) => void,
+                            setName:  (name: string) => void,
+                            addUserCallback: (name: string,  setError: (error: string) => void, setName: (name: string) => void) => void) => {
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
-    addUserCallback(name, setError, setName)
-    setName('')
+    if(!name || name.trim() === ''){
+        setError('Ошибка! Введите имя!')
+    } else {
+        addUserCallback(name, setError, setName)
+        setName('')
+    }
 }
 
 export const pureOnBlur = (name: string, setError: (item: string) => void) => { // если имя пустое - показать ошибку
-     if (!name) {
-         setError('error')
+     if (!name || name.trim() === '') {
+         setError('Ошибка! Введите имя!')
      }
 }
 
 export const pureOnEnter = (e: KeyboardEvent<any>, addUser: (item: string) => void) => { // если нажата кнопка Enter - добавить
     if (e.code === 'Enter') {
-
-        addUser(e.currentTarget.value)
+        addUser(e.currentTarget.value )
     }
 }
 
@@ -39,7 +45,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const [name, setName] = useState<string>('') // need to fix any
     const [error, setError] = useState<string>('') // need to fix any
 
-    const setNameCallback = (e: ChangeEvent<any>) => { // need to fix any
+    const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => { // need to fix any
         setName(e.currentTarget.value) // need to fix
 
         error && setError('')
@@ -57,7 +63,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const totalUsers = users.length // need to fix
-    const lastUserName = users.map((item: UserType, index: number ) => index === users.length - 1 ? item.name : error).join('') // need to fix
+    const lastUserName = users.map((item: UserType, index: number ) => index === users.length - 1 ? item.name : '').join('') // need to fix
 
     return (
         <Greeting
