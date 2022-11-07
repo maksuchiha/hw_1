@@ -1,22 +1,52 @@
 .greetingForm {
 }
 
+.greetingForm input {
+    width: 100%;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    padding: 10px;
+    height: 36px;
+    outline: none;
+}
+
 .inputAndButtonContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.inputAndButtonContainer div {
+    max-width: 370px;
+    width: 100%;
 }
 
 .error {
-}
-
-.input {
+    color: red;
 }
 
 .input:focus {
 }
 
 .errorInput {
+
 }
 
 .button {
+    background: #0066CC;
+    border-radius: 3px;
+    color: #fff;
+    height: 36px;
+    border: none;
+    outline: none;
+    padding: 0 15px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.button:first-letter {
+    text-transform: uppercase;
 }
 
 .button:focus {
@@ -29,7 +59,12 @@
 }
 
 .text {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 8px;
 }
 
 .greeting {
+    font-size: 14px;
+    line-height: 17px;
 }
