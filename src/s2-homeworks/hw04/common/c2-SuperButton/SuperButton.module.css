@@ -6,6 +6,7 @@
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .button:first-letter {
@@ -19,7 +20,8 @@
 }
 
 .secondary {
-    background: #C9E5FF;
+    background: #fff;
+    color: #0066CC;
     border: 1px solid #0066CC;
 }
 
