@@ -11,10 +11,15 @@ import s from './HW7.module.css'
 * 4 - сделать стили в соответствии с дизайном
 * */
 
-const arr = [
-    { id: 1, value: 'x' },
-    { id: 2, value: 'y' },
-    { id: 3, value: 'z' },
+export type ArrType = {
+    id: number
+    value: string
+}
+
+const arr: ArrType[] = [
+    { id: 1, value: 'Pre-junior' },
+    { id: 2, value: 'Junior' },
+    { id: 3, value: 'Junior +' },
 ] // value может быть изменено
 
 const HW7 = () => {
@@ -27,7 +32,7 @@ const HW7 = () => {
             {/*демонстрация возможностей компонент:*/}
             <div className={s2.hw}>
                 <div className={s.container}>
-                    <div>
+                    <div className={s.select}>
                         <SuperSelect
                             id={'hw7-super-select'}
                             options={arr}
@@ -35,7 +40,7 @@ const HW7 = () => {
                             onChangeOption={onChangeOption}
                         />
                     </div>
-                    <div>
+                    <div className={s.radios}>
                         <SuperRadio
                             id={'hw7-super-radio'}
                             name={'hw7-radio'}
