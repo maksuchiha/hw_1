@@ -5,19 +5,46 @@
 }
 
 .users {
+    border-collapse: collapse;
+    width: 100%;
 }
 
 .buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .container {
+    max-width: 606px;
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 .thead {
+    background: #E5E5E5;
+}
+
+.thead td {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
 }
 
 .nameCol {
+    padding: 10px 15px;
+    width: 50%;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 .ageCol {
+    padding: 10px 15px;
+    width: 50%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
 }
