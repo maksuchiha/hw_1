@@ -22,7 +22,7 @@ function Clock() {
         setDisable(!disable)
     }
 
-    const addHours = (time: string) => {
+    const getTime = (time: string) => {
         switch (time) {
             case 'hours' : {
                 return date.getHours() < 9 ? `0${date.getHours()}` : date.getHours()
@@ -32,6 +32,15 @@ function Clock() {
             }
             case 'seconds' : {
                 return date.getSeconds() < 9 ? `0${date.getSeconds()}` : date.getSeconds()
+            }
+            case 'month' : {
+                return date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
+            }
+            case 'day' : {
+                return date.getDay() < 9 ? `0${date.getDay()}` : date.getDay()
+            }
+            case 'year' : {
+                return date.getFullYear()
             }
             default: return time
         }
@@ -51,8 +60,8 @@ function Clock() {
         setShow(false)
     }
 
-    const stringTime = `${addHours('hours')}:${addHours('minutes')}:${addHours('seconds')}` || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = new Date().toLocaleDateString() || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const stringTime = `${getTime('hours')}:${getTime('minutes')}:${getTime('seconds')}` || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
+    const stringDate = `${getTime('day')}/${getTime('month')}/${getTime('year')}` || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
     const stringDay = date.toLocaleString('en', {weekday: 'long'}) || <br/> // пишут студенты
@@ -90,14 +99,14 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={disable} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={timerId !== undefined} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={!disable} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={!timerId} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
                     stop
