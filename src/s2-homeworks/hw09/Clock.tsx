@@ -37,7 +37,7 @@ function Clock() {
                 return date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
             }
             case 'day' : {
-                return date.getDay() < 9 ? `0${date.getDay()}` : date.getDay()
+                return date.getDate() < 9 ? `0${date.getDate()}` : date.getDate()
             }
             case 'year' : {
                 return date.getFullYear()
